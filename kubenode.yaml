@@ -141,11 +141,6 @@ resources:
       group: ungrouped
       config: {get_file: enable-services-minion.sh}
 
-  cfn_signal:
-    type: "OS::Heat::SoftwareConfig"
-    properties:
-      group: ungrouped
-      config: {get_file: cfn-signal.sh}
 
   disable_selinux:
     type: "OS::Heat::SoftwareConfig"
@@ -166,7 +161,6 @@ resources:
         - config: {get_resource: configure_kubernetes_minion}
         - config: {get_resource: docker_service}
         - config: {get_resource: enable_services}
-        - config: {get_resource: cfn_signal}
 
   kube_node:
     type: "OS::Nova::Server"
