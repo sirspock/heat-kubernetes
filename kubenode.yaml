@@ -92,7 +92,7 @@ resources:
       group: ungrouped
       config:
         str_replace:
-          template: {get_file: fragments/write-heat-params.yaml}
+          template: {get_file: write-heat-params.yaml}
           params:
             "$KUBE_ALLOW_PRIV": {get_param: kube_allow_priv}
             "$KUBE_MASTER_IP": {get_param: kube_master_ip}
@@ -103,55 +103,55 @@ resources:
     type: "OS::Heat::SoftwareConfig"
     properties:
       group: ungrouped
-      config: {get_file: fragments/add-to-docker-group.sh}
+      config: {get_file: add-to-docker-group.sh}
 
   configure_docker_storage:
     type: "OS::Heat::SoftwareConfig"
     properties:
       group: ungrouped
-      config: {get_file: fragments/configure-docker-storage.sh}
+      config: {get_file: configure-docker-storage.sh}
 
   configure_kubernetes_minion:
     type: "OS::Heat::SoftwareConfig"
     properties:
       group: ungrouped
-      config: {get_file: fragments/configure-kubernetes-minion.sh}
+      config: {get_file: configure-kubernetes-minion.sh}
 
   kube_user:
     type: "OS::Heat::SoftwareConfig"
     properties:
       group: ungrouped
-      config: {get_file: fragments/kube-user.yaml}
+      config: {get_file: kube-user.yaml}
 
   kube_examples:
     type: "OS::Heat::SoftwareConfig"
     properties:
       group: ungrouped
-      config: {get_file: fragments/kube-examples.yaml}
+      config: {get_file: kube-examples.yaml}
 
   docker_service:
     type: "OS::Heat::SoftwareConfig"
     properties:
       group: ungrouped
-      config: {get_file: fragments/docker.service.yaml}
+      config: {get_file: docker.service.yaml}
 
   enable_services:
     type: "OS::Heat::SoftwareConfig"
     properties:
       group: ungrouped
-      config: {get_file: fragments/enable-services-minion.sh}
+      config: {get_file: enable-services-minion.sh}
 
   cfn_signal:
     type: "OS::Heat::SoftwareConfig"
     properties:
       group: ungrouped
-      config: {get_file: fragments/cfn-signal.sh}
+      config: {get_file: cfn-signal.sh}
 
   disable_selinux:
     type: "OS::Heat::SoftwareConfig"
     properties:
       group: ungrouped
-      config: {get_file: fragments/disable-selinux.sh}
+      config: {get_file: disable-selinux.sh}
 
   kube_node_init:
     type: "OS::Heat::MultipartMime"
